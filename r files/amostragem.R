@@ -1,6 +1,6 @@
 library(RcmdrMisc)
 
-Dataset <- readXL("Documents/unifal/estatistica/r/rep/Dados_Aula_Pratica_Amostragem.xlsx",
+Dataset <- readXL("Documents/unifal/estatistica/r/rep/data/Dados_Aula_Pratica_Amostragem.xlsx",
                   rownames=FALSE, header=TRUE,
                   na="", sheet="Plan1", stringsAsFactors=TRUE)
 
@@ -47,9 +47,10 @@ amostraP <- sample(subsetP$Idade, amostraProporcional[3])
 
 amostraEstratificada <- c(amostraA, amostraP, amostraO)
 
-mean(amostraEstratificada) #MEDIA DA AMOSTRA ESTRATIFICADA
+mediaEST <- mean(amostraEstratificada) #MEDIA DA AMOSTRA ESTRATIFICADA
 
-
+#ERRO DE ESTIMACAO
+err <- abs(mediaEST - mean(idade))
 
 
 
